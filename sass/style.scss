@@ -1,0 +1,113 @@
+@charset "UTF-8";
+@use "reset";
+
+/* <-- variable --> */
+$orange : #ff9a4b;
+$gray : #aaa;
+$silver: #eee;
+
+/* <-- media query --> */
+$breakpoint: (
+  sp: 'screen and (max-width: 430px)',
+);
+
+@mixin media($bp) {
+  @media #{map-get($breakpoint, $bp)} {
+    @content;
+  }
+}
+
+
+/* <-- header element --> */
+.header-band {
+  height: 50px;
+  min-width: 960px;
+  background: $orange;
+}
+
+/* <-- main element --> */
+.main-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+
+  margin: {
+    top: 50px;
+    bottom: 50px;
+  }
+
+  ;
+
+  @include media(sp) {
+    flex-direction: column;
+
+    gap: 20px;
+  }
+}
+
+.item-wrapper {
+  width: 300px;
+  height: fit-content;
+  position: relative;
+  background: $silver;
+
+  @include media(sp) {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  span {
+    background: $orange;
+    color: #fff;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 2px 1px 6px;
+  }
+}
+
+.item-content {
+  h3 {
+    margin: 0 10px;
+  }
+
+  p {
+    margin: 0 auto;
+
+    padding: {
+      top: 5px;
+      bottom: 5px;
+      left: 8px;
+      right: 5px;
+    }
+
+    font-size: 0.8rem;
+    line-height: 1.6rem;
+  }
+}
+
+/* <-- about bg-img --> */
+.img-container {
+  height: 150px;
+  background-position: bottom;
+  background-size: cover;
+  margin: 10px 10px 25px;
+}
+
+.step1_img {
+  background-image: url(../img/flow01.png);
+}
+
+.step2_img {
+  background-image: url(../img/flow02.png);
+}
+
+.step3_img {
+  background-image: url(../img/flow03.png);
+}
+
+/* <-- footer element --> */
+.footer-band {
+  @extend .header-band;
+  background: $gray;
+}
