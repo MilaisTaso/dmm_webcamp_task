@@ -8,7 +8,7 @@ $silver: #eee;
 
 /* <-- media query --> */
 $breakpoint: (
-  sp: 'screen and (max-width: 430px)',
+  md: 'screen and (max-width: 768px)',
 );
 
 @mixin media($bp) {
@@ -21,24 +21,20 @@ $breakpoint: (
 /* <-- header element --> */
 .header-band {
   height: 50px;
-  min-width: 960px;
+  min-width: 100%;
   background: $orange;
 }
 
 /* <-- main element --> */
 .main-container {
+  max-width: 960px;
   display: flex;
   justify-content: center;
   gap: 30px;
 
-  margin: {
-    top: 50px;
-    bottom: 50px;
-  }
+  margin: 50px auto 50px auto;
 
-  ;
-
-  @include media(sp) {
+  @include media(md) {
     flex-direction: column;
 
     gap: 20px;
@@ -51,7 +47,7 @@ $breakpoint: (
   position: relative;
   background: $silver;
 
-  @include media(sp) {
+  @include media(md) {
     width: 90%;
     margin: 0 auto;
   }

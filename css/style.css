@@ -382,19 +382,19 @@ th {
 /* <-- header element --> */
 .header-band, .footer-band {
   height: 50px;
-  min-width: 960px;
+  min-width: 100%;
   background: #ff9a4b;
 }
 
 /* <-- main element --> */
 .main-container {
+  max-width: 960px;
   display: flex;
   justify-content: center;
   gap: 30px;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin: 50px auto 50px auto;
 }
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 768px) {
   .main-container {
     flex-direction: column;
     gap: 20px;
@@ -407,7 +407,7 @@ th {
   position: relative;
   background: #eee;
 }
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 768px) {
   .item-wrapper {
     width: 90%;
     margin: 0 auto;
